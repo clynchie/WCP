@@ -1,0 +1,126 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "stdFooter"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "children" : [ {
+          "valueOutBinding" : "editThisGigOutbound.gigTitle",
+          "label" : "Gig Title",
+          "id" : "gigTitle",
+          "type" : "text",
+          "value" : "${editThisGig.gigTitle}",
+          "enabled" : "true",
+          "required" : "true"
+        }, {
+
+          "id" : "gigDescription",
+          "valueOutBinding" : "editThisGigOutbound.gigDescription",
+          "label" : "Description (max 255 characters)",
+          "type" : "textArea",
+          "value" : "${editThisGig.gigDescription}",
+          "enabled" : "true",
+          "required" : "true",
+          "helpText" : "Please enter a Gig Description of below 255 Characters",
+          "validations" : [ {
+            "expression" : "${string:length(gigDescription.value) le '255'}",
+            "errorMessage" : "Gig Description should not be greater than 255 characters"
+          } ]
+        }, {
+            "id": "gigType",
+          "valueOutBinding" : "editThisGigOutbound.gigType.id",
+          "selectedValues" : "${list:toList(editThisGig.gigType.id)}",
+          "values": "${myGigTypes.data}",
+          "label" : "Gig Type",
+          "type" : "dropdown",
+          "enabled" : "true",
+          "required" : "true"
+        }, {
+            "id": "gigSkills",
+          "valueOutBinding" : "editThisGigOutbound.gigSkills.id",
+         "selectedValues" : "${list:toList(editThisGig.gigSkills.id)}",
+          "instanceList" : [ {
+            "id" : "presentation",
+            "descriptor" : "Presentation Skills"
+          }, {
+            "id" : "excel",
+            "descriptor" : "Excel Skills"
+          }, {
+            "id" : "analytical",
+            "descriptor" : "Analytical Skills"
+          }, {
+            "id" : "bigData",
+            "descriptor" : "Big Data"
+          }, {
+            "id" : "businessStrategy",
+            "descriptor" : "Business Strategy"
+          }, {
+            "id" : "projectManagement",
+            "descriptor" : "Project Management"
+          }, {
+            "id" : "criticalThinking",
+            "descriptor" : "Critical Thinking"
+          } ],
+          "label" : "Gig Skills",
+          "type" : "dropdown",
+          "enabled" : "true",
+          "required" : "true"
+        }, {
+          "valueOutBinding" : "editThisGigOutbound.deliveryDate",
+          "label" : "Gig Delivery Date",
+          "type" : "date",
+          "value" : "${editThisGig.deliveryDate}",
+          "enabled" : "true",
+          "required" : "true"
+        }, {
+          "valueOutBinding" : "editThisGigOutbound.bidEndDate",
+          "label" : "Application End Date",
+          "type" : "date",
+          "value" : "${editThisGig.bidEndDate}",
+          "enabled" : "true",
+          "required" : "true",
+          "validations" : [ {
+            "expression" : "${bidEndDate.value le deliveryDate.value}",
+            "errorMessage" : "Application End Date must not be later than the Delivery Date"
+          } ]
+        } ],
+        "type" : "fieldSet",
+        "title" : "Edit Your Gig:"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "CUSTOMOBJECT",
+      "headers" : [ {
+        "name" : "content-type",
+        "value" : "application/json"
+      } ],
+      "name" : "editThisGigOutbound",
+      "authType" : "sso",
+      "httpMethod" : "PUT",
+      "url" : "/gigmarketplaceGigsCompany/${string:substring(queryParams.editGig, '0', '32')}"
+    } ]
+  },
+  "id" : "modifyMyGigs",
+  "endPoints" : [ {
+    "baseUrlType" : "CUSTOMOBJECT",
+    "name" : "editThisGig",
+    "authType" : "sso",
+    "url" : "/gigmarketplaceGigsCompany/${string:substring(queryParams.editGig, '0', '32')}"
+  } ,
+    {
+      "baseUrlType" : "CUSTOMLISTS",
+      "name" : "myGigTypes",
+      "authType" : "sso",
+      "url" : "/"
+    }]
+}

@@ -1,0 +1,44 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "File Upload: Summary",
+      "type" : "title"
+    },
+    "body" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "header"
+      }, {
+        "label" : "Uploaded Filename and File ID:",
+        "type" : "text",
+        "value" : "Filename: ${folder.data[0].descriptor}\nFile ID from Flow Variable: ${queryParams.uploadInfo.id}\nFile ID from Session Variable: ${pmdSessionVariables.uploadedImage}"
+      }, {
+        "endPoint" : {
+          "baseUrlType" : "wdayDoc",
+          "authType" : "sso",
+          "url" : "/file/${queryParams.uploadInfo.id}"
+        },
+        "type" : "image"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "fileUploaderSummary",
+  "endPoints" : [ {
+    "baseUrlType" : "wdayDoc",
+    "name" : "folder",
+    "authType" : "sso",
+    "_url" : "/folders/${queryParams.folderId}/items",
+    "url" : "/folders/39378a145edd01a7bfaad03e1b02731d/items"
+  } ]
+}

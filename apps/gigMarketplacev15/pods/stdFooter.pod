@@ -1,0 +1,10 @@
+{
+  "podId" : "stdFooter",
+  "seed" : {
+    "template" : {
+      "type" : "richText",
+      "enabled" : "false",
+      "value" : "Powered By WCP <br /> Developed By Deloitte Ireland <br /> For queries, please email: <a href='mailto:ieworkdayams@deloitte.ie'>ieworkdayams@deloitte.ie</a>"
+    }
+  }
+}

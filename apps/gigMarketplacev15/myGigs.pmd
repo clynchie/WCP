@@ -1,0 +1,183 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "stdFooter"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "type" : "richText",
+        "value" : "<h1 style=\"font-size:24px;\"><b>Responses To My Gigs</b></h1>"
+      }, {
+        "gridType" : "LIST",
+        "rowVariableName" : "raasData",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasData.gigTitle}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasData.bidderName}"
+          },
+          "columnId" : "v2",
+          "label" : "Bid Applicant",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasData.bidderDepartment}"
+          },
+          "columnId" : "v3",
+          "label" : "Applicant Department",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "descriptor" : "${raasData.bidderEmailAddress}",
+            "type" : "externalLink",
+            "url" : "${raasData.bidderEmailAddress}"
+          },
+          "columnId" : "v4",
+          "label" : "Applicant Contact Details",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasData.bidderComment}"
+          },
+          "columnId" : "v5",
+          "label" : "Response From Bidder",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasData.bidStatus}"
+          },
+          "columnId" : "v51",
+          "label" : "Bidder Status",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "id" : "chooseResponse",
+            "label" : "Respond to Bidder",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('workdayid', raasData.workdayid))}",
+              "taskId" : "respondToBidder"
+            }
+          },
+          "columnId" : "v6",
+          "label" : "Selection",
+          "type" : "column"
+        } ],
+        "id" : "raasCallResponses",
+        "type" : "grid",
+        "rows" : "${bidderInformation.Report_Entry[0].WCP_Company_Gig_Bids_group}"
+      }, {
+        "type" : "richText",
+        "value" : "<h1 style=\"font-size:24px;\"><b>My Gigs</b></h1>"
+      }, {
+        "gridType" : "LIST",
+        "rowVariableName" : "raasDataGigs",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasDataGigs.gigTitle}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasDataGigs.gigDescription}"
+          },
+          "columnId" : "v2",
+          "label" : "Description",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasDataGigs.gigType}"
+          },
+          "columnId" : "v3",
+          "label" : "Gig Type",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasDataGigs.gigSkills}"
+          },
+          "columnId" : "v7",
+          "label" : "Gig Skill",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${raasDataGigs.deliveryDate}"
+          },
+          "columnId" : "v4",
+          "label" : "Delivery Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${raasDataGigs.bidEndDate}"
+          },
+          "columnId" : "v5",
+          "label" : "Application End Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "id" : "editGig",
+            "label" : "Edit Your Gig",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('editGig', raasDataGigs.workdayID) )}",
+              "taskId" : "modifyMyGigs"
+            }
+          },
+          "columnId" : "v6",
+          "label" : "Edit Your Gig",
+          "type" : "column"
+        } ],
+        "id" : "raasCallMyGigs",
+        "type" : "grid",
+        "rows" : "${myGigs.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      }, {
+        "action" : "PRIMARY",
+        "id" : "homePageButton8",
+        "label" : "Gig Marketplace",
+        "type" : "button",
+        "taskReference" : {
+          "type" : "taskReference",
+          "taskId" : "root"
+        }
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "myGigs",
+  "endPoints" : [ {
+    "baseUrlType" : "RAAS",
+    "name" : "bidderInformation",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Bidder_Information?format=json"
+  }, {
+    "baseUrlType" : "RAAS",
+    "name" : "myGigs",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_My_Gigs?format=json"
+  } ]
+}

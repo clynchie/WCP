@@ -1,0 +1,73 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP <br /> Developed By Deloitte Ireland",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "action" : "LINK",
+        "id" : "homePageButton96",
+        "label" : "⤺ Back to Home",
+        "type" : "button",
+        "taskReference" : {
+          "type" : "taskReference",
+          "taskId" : "home"
+        }
+      }, {
+        "value" : "Please complete the following fields:",
+        "type" : "text",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "Description",
+        "type" : "textArea",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "When is the Event?",
+        "type" : "date",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "What time is the Event?",
+        "type" : "time",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "Where is the event?",
+        "type" : "text",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "Cost",
+        "type" : "text",
+        "enabled" : "false",
+        "required" : "true"
+      }, {
+        "action" : "LINK",
+        "id" : "homePageButton100",
+        "label" : "Sign up!",
+        "type" : "button",
+        "taskReference" : {
+          "type" : "taskReference",
+          "taskId" : "home"
+        }
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "createEvent",
+  "endPoints" : [ {
+    "baseUrlType" : "WORKER",
+    "name" : "worker",
+    "authType" : "sso",
+    "url" : "/me"
+  } ]
+}

@@ -1,0 +1,39 @@
+{
+  "id" : "drive",
+  "applicationId" : "drive",
+  "siteId" : "drive",
+  "tasks" : [ {
+    "id" : "home",
+    "routingPattern" : "/",
+    "page" : {
+      "id" : "home"
+    },
+    "pageId" : "home"
+  } ],
+  "headerBackgroundColor" : "#fbbc05",
+  "languages" : [ {
+    "code" : "en-US",
+    "description" : "English"
+  } ],
+  "auth" : {
+    "type" : "OAUTH2"
+  },
+  "siteAuth" : {
+    "authTypes" : [ {
+      "scheme" : "OAUTH2",
+      "id" : "drive",
+      "source" : "OMS",
+      "referenceId" : "576663042140-fh3200ql01eqr14drcnc6vgl52fbn4ff.apps.googleusercontent.com",
+      "providerType" : "STANDARD_POST",
+      "useProxyServer" : true,
+      "authenticationScheme" : "OAUTH2"
+    } ],
+    "defaultId" : "drive"
+  },
+  "appProperties" : [ ],
+  "cdnEnabled" : true,
+  "dataProviders" : [ {
+    "key" : "drive",
+    "value" : "https://www.googleapis.com/drive/v2"
+  } ]
+}

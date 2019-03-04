@@ -1,0 +1,53 @@
+{
+  "id" : "TravelPortal",
+  "applicationId" : "TravelPortal",
+  "siteId" : "TravelPortal",
+  "tasks" : [ {
+    "id" : "root",
+    "routingPattern" : "/",
+    "page" : {
+      "id" : "home"
+    },
+    "pageId" : "home"
+  }, {
+    "id" : "ViewTravelProfile",
+    "routingPattern" : "ViewTravelProfile",
+    "page" : {
+      "id" : "ViewTravelProfile"
+    },
+    "pageId" : "ViewTravelProfile"
+  }, {
+    "id" : "ViewBookedTrips",
+    "routingPattern" : "ViewBookedTrips",
+    "page" : {
+      "id" : "ViewBookedTrips"
+    },
+    "pageId" : "ViewBookedTrips"
+  }, {
+    "id" : "EditTravelProfile",
+    "routingPattern" : "EditTravelProfile",
+    "page" : {
+      "id" : "EditTravelProfile"
+    },
+    "pageId" : "EditTravelProfile"
+  } ],
+  "languages" : [ {
+    "code" : "en-US",
+    "description" : "English"
+  } ],
+  "auth" : {
+    "type" : "SSO"
+  },
+  "siteAuth" : {
+    "authTypes" : [ {
+      "scheme" : "SSO",
+      "id" : "sso",
+      "authenticationScheme" : "SSO"
+    } ],
+    "defaultId" : "sso"
+  },
+  "appProperties" : [ ],
+  "cdnEnabled" : true,
+  "ssoSite" : true,
+  "dataProviders" : [ { } ]
+}

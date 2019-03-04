@@ -1,0 +1,58 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "stdFooter"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "id" : "message",
+        "label" : "Enter your message here and the bidder will be contacted via email",
+        "type" : "text",
+        "value" : "${messageTemplates}",
+        "enabled" : "true"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "CONNECT",
+      "headers" : [ {
+        "name" : "content-type",
+        "value" : "application/json"
+      } ],
+      "values" : [ {
+        "outboundPath" : "notificationType.id",
+        "value" : "bcbbab73dcd7100004ed54d17aa80df4"
+      }, {
+        "outboundPath" : "messageTemplate.id",
+        "value" : "6dc8d8651b970121b41db100ef016711"
+      }, {
+        "outboundPath" : "recipients.contacts[0].id",
+        "value" : "19f7dabb79994d29931cd139df6272ed"
+      } ],
+      "name" : "connectOut",
+      "authType" : "sso",
+      "httpMethod" : "POST",
+      "url" : "/"
+    } ]
+  },
+  "id" : "bidResponse",
+  "endPoints" : [ {
+    "baseUrlType" : "MESSAGE",
+    "name" : "messageTemplates",
+    "authType" : "sso",
+    "url" : "/"
+  }, {
+    "baseUrlType" : "RAAS",
+    "name" : "bidderInformation",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Bidder_Information?format=json"
+  } ]
+}

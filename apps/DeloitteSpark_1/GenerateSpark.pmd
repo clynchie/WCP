@@ -1,0 +1,27 @@
+{
+  "id" : "GenerateSpark",
+  "endPoints" : [ ],
+  "outboundData" : {
+    "outboundEndPoints" : [ ]
+  },
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "body" : {
+      "type" : "section",
+      "horizontal" : false,
+      "children" : [ {
+        "type" : "text",
+        "id" : "hello",
+        "label" : "Generate Spark!"
+      } ]
+    },
+    "footer" : {
+      "type" : "footer",
+      "children" : [ {
+        "type" : "richText",
+        "enabled" : "false",
+        "value" : "Powered By WCP"
+      } ]
+    }
+  }
+}

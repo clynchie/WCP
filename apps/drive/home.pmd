@@ -1,0 +1,104 @@
+{
+  "id" : "home",
+  "endPoints" : [ {
+    "name" : "files",
+    "url" : "/files?q=not%20(mimeType%20contains%20%27vnd.google-apps%27)",
+    "baseUrlType" : "drive",
+    "authType" : "drive"
+  } ],
+  "presentation" : {
+    "title" : {
+      "type" : "title",
+      "label" : "Google Drive OAuth2 Test"
+    },
+    "footer" : {
+      "type" : "footer",
+      "children" : [ {
+        "type" : "richText",
+        "enabled" : "false",
+        "value" : "Powered By Workday Cloud Platform"
+      } ]
+    },
+    "body" : {
+      "type" : "section",
+      "children" : [ {
+        "type" : "section",
+        "children" : [ {
+          "type" : "section",
+          "render" : "${not empty files.error}",
+          "children" : [ {
+            "type" : "text",
+            "label" : "Error from Google Drive API",
+            "render" : "${not empty files.error.errors[0].message}",
+            "value" : "${files.error.errors[0].message}"
+          }, {
+            "type" : "text",
+            "value" : "Click the Authenticate with Google Drive button in order to see a list of your files."
+          }, {
+            "type" : "oauthButton",
+            "buttonType" : "AUXILIARY",
+            "redirectTaskReference" : {
+              "type" : "taskReference",
+              "taskId" : "home"
+            },
+            "errorTaskReference" : {
+              "type" : "taskReference",
+              "taskId" : "home"
+            },
+            "label" : "Authenticate with Google Drive",
+            "authId" : "drive"
+          } ]
+        }, {
+          "type" : "section",
+          "render" : "${empty files.error}",
+          "children" : [ {
+            "type" : "grid",
+            "label" : "My Drive Files",
+            "gridType" : "LIST",
+            "rowVariableName" : "file",
+            "rows" : "${files.items}",
+            "columns" : [ {
+              "type" : "column",
+              "columnId" : "download",
+              "label" : "File",
+              "cellTemplate" : {
+                "type" : "instanceList",
+                "label" : "Download",
+                "instanceList" : [ {
+                  "descriptor" : "${file.title}",
+                  "action" : "URL",
+                  "target" : "${file.webContentLink}"
+                } ]
+              }
+            }, {
+              "type" : "column",
+              "label" : "Size",
+              "columnId" : "file_size",
+              "cellTemplate" : {
+                "type" : "text",
+                "value" : "${file:byteCountToDisplaySize(file.fileSize)}"
+              }
+            }, {
+              "type" : "column",
+              "label" : "Last Modified",
+              "columnId" : "last_modified",
+              "cellTemplate" : {
+                "type" : "date",
+                "value" : "${file.modifiedDate}",
+                "datePrecision" : "DAY"
+              }
+            }, {
+              "type" : "column",
+              "label" : "Mime Type",
+              "columnId" : "type",
+              "cellTemplate" : {
+                "type" : "text",
+                "value" : "${file.mimeType}"
+              }
+            } ]
+          } ]
+        } ]
+      } ]
+    }
+  }
+}

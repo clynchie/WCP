@@ -1,0 +1,46 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "File Upload: Create Folder",
+      "type" : "title"
+    },
+    "body" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "header"
+      }, {
+        "valueOutBinding" : "createFolder.folderName",
+        "label" : "New Folder Name (creating a folder for file to be inserted into)",
+        "type" : "text"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "wdayDoc",
+      "name" : "createFolder",
+      "authType" : "sso",
+      "url" : "/"
+    }, {
+      "values" : [ {
+        "outboundPath" : "folderId",
+        "value" : "${createFolder.id}"
+      } ],
+      "name" : "outboundFlowVariable",
+      "type" : "outboundVariable",
+      "variableScope" : "flow"
+    } ]
+  },
+  "id" : "fileUploaderCreateFolder"
+}

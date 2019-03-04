@@ -1,0 +1,76 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By Workday Services and the Workday Cloud Platform",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "clusteredBarChart",
+      "type" : "title"
+    },
+    "body" : {
+      "children" : [ {
+        "horizontal" : true,
+        "children" : [ {
+          "type" : "pod",
+          "podId" : "header"
+        }, {
+          "label" : "clusteredBarChart",
+          "type" : "text",
+          "value" : "Please see the below example of a clustered Bar Chart.  The metrics are just for demo purposes.  Feel free to edit the PMD, to see the affect on the graph if certain tags are added / removed "
+        }, {
+          "comparisonLineLabel" : "Grand Total",
+          "_comment" : "The verticalAxisMaximumValue is optional.   If removed, Workday will scale the chart dynamically",
+          "horizontalAxisIncrementValue" : {
+            "axisValue" : 200,
+            "useAxisValue" : true,
+            "type" : "chartAxisProperty"
+          },
+          "rowVariableName" : "row",
+          "horizontalAxisTitle" : "ISO Code",
+          "horizontalAxisMaximumValue" : {
+            "axisValue" : 3000,
+            "useAxisValue" : true,
+            "type" : "chartAxisProperty"
+          },
+          "metrics" : [ {
+            "binding" : "${row.ISO_3166_1_Numeric_3_Code}",
+            "label" : "ISO_3166_1_Numeric_3_Code",
+            "type" : "chartMetric"
+          }, {
+            "binding" : "${row.ISO_3166_1_Numeric_3_Code * 2}",
+            "label" : "ISO_3166_1_Numeric_3_Code * 2",
+            "type" : "chartMetric"
+          } ],
+          "type" : "clusteredBarChart",
+          "rows" : "${countries.items}",
+          "horizontalAxisMinimumValue" : {
+            "axisValue" : 0,
+            "useAxisValue" : true,
+            "type" : "chartAxisProperty"
+          },
+          "verticalAxisLabels" : {
+            "binding" : "${row.name}",
+            "label" : "Country",
+            "type" : "chartDimension"
+          },
+          "comparisonLinePosition" : 1000
+        } ],
+        "type" : "section"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "clusteredBarChart",
+  "endPoints" : [ {
+    "baseUrlType" : "wdayRef",
+    "bestEffort" : true,
+    "name" : "countries",
+    "authType" : "sso",
+    "url" : "/country/vers/latest/items?pageLimit=10"
+  } ]
+}

@@ -1,0 +1,78 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "stdFooter"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "gridType" : "LIST",
+        "rowVariableName" : "raasData",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasData.gigTitle}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasData.bidderName}"
+          },
+          "columnId" : "v2",
+          "label" : "Bid Applicant",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${raasData.bidderEmailAddress}"
+          },
+          "columnId" : "v4",
+          "label" : "Bid Applicant Contact Details",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "label" : "Give Feedback",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('bidderWid', raasData.bidderWid) )}",
+              "taskId" : "giveFeedbackToBidder"
+            }
+          },
+          "columnId" : "v5",
+          "label" : "Give Feedback",
+          "type" : "column"
+        } ],
+        "id" : "raasCall",
+        "type" : "grid",
+        "rows" : "${bidderInformation.Report_Entry[0].WCP_Company_Gig_Bids_group}"
+      }, {
+        "action" : "PRIMARY",
+        "id" : "homePageButton8",
+        "label" : "Gig Marketplace",
+        "type" : "button",
+        "taskReference" : {
+          "type" : "taskReference",
+          "taskId" : "root"
+        }
+      } ],
+      "type" : "section",
+      "title" : "Give Feedback to Bidders"
+    }
+  },
+  "id" : "giveFeedback",
+  "endPoints" : [ {
+    "baseUrlType" : "RAAS",
+    "name" : "bidderInformation",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Bidder_Information?format=json"
+  } ]
+}

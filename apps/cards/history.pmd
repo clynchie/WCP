@@ -1,0 +1,84 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "id" : "footerText",
+        "type" : "richText",
+        "value" : "Powered By Workday Cloud Platform",
+        "enabled" : "true"
+      } ],
+      "id" : "footer",
+      "type" : "footer"
+    },
+    "body" : {
+      "children" : [ {
+        "gridType" : "LIST",
+        "rowVariableName" : "order",
+        "columns" : [ {
+          "cellTemplate" : {
+            "id" : "requisitionText",
+            "type" : "text",
+            "value" : "${order.descriptor}"
+          },
+          "columnId" : "requisition",
+          "id" : "requisition",
+          "label" : "Requisition Identifier",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "id" : "memoText",
+            "type" : "text",
+            "value" : "${order.memo}"
+          },
+          "columnId" : "memo",
+          "id" : "memo",
+          "label" : "Memo",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "id" : "requesterText",
+            "type" : "text",
+            "value" : "${order.requester.descriptor}"
+          },
+          "columnId" : "requester",
+          "id" : "requester",
+          "label" : "Requester",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "id" : "orderDateText",
+            "type" : "text",
+            "value" : "${order.requisitionDate}"
+          },
+          "columnId" : "orderDate",
+          "id" : "orderDate",
+          "label" : "Order Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "id" : "amountText",
+            "type" : "text",
+            "value" : "${order.amount.value} ${order.amount.currency}"
+          },
+          "columnId" : "amount",
+          "id" : "amount",
+          "label" : "Total",
+          "type" : "column"
+        } ],
+        "id" : "orders",
+        "type" : "grid",
+        "rows" : "${orderHistory.data}"
+      } ],
+      "id" : "body",
+      "type" : "section",
+      "title" : "Order History"
+    }
+  },
+  "id" : "history",
+  "endPoints" : [ {
+    "baseUrlType" : "workdayProcurement",
+    "name" : "orderHistory",
+    "authType" : "sso",
+    "url" : "requisitions?requester=${queryParams.workerId}"
+  } ]
+}

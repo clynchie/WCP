@@ -1,0 +1,38 @@
+{
+  "id" : "HelloWorld",
+  "applicationId" : "HelloWorld",
+  "siteId" : "HelloWorld",
+  "tasks" : [ {
+    "id" : "root",
+    "routingPattern" : "/",
+    "page" : {
+      "id" : "trialHome"
+    },
+    "pageId" : "trialHome"
+  }, {
+    "id" : "trialHome",
+    "routingPattern" : "trialHome",
+    "page" : {
+      "id" : "trialHome"
+    },
+    "pageId" : "trialHome"
+  } ],
+  "languages" : [ {
+    "code" : "en-US",
+    "description" : "English"
+  } ],
+  "auth" : {
+    "type" : "SSO"
+  },
+  "siteAuth" : {
+    "authTypes" : [ {
+      "scheme" : "SSO",
+      "id" : "sso",
+      "authenticationScheme" : "SSO"
+    } ],
+    "defaultId" : "sso"
+  },
+  "appProperties" : [ ],
+  "cdnEnabled" : true,
+  "ssoSite" : true
+}

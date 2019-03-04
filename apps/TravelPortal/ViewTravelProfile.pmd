@@ -1,0 +1,261 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "tabs" : [ {
+      "horizontal" : false,
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpTravelProfile",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v1",
+          "label" : "First Name",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v2",
+          "label" : "Middle Name",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v3",
+          "label" : "Last Name",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : "${}"
+      } ],
+      "label" : "Personal Details",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpTravelProfile",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v1",
+          "label" : "Mobile Number",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v2",
+          "label" : "Deloitte email address (Your unique id)",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : ""
+      } ],
+      "label" : "Contact Details",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpTravelProfile",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v1",
+          "label" : "Credit/debit type",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v2",
+          "label" : "Number",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v3",
+          "label" : "Expiry",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : ""
+      } ],
+      "label" : "Hotel Guarantee",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpTravelProfile",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "}"
+          },
+          "columnId" : "v1",
+          "label" : "Passport Number",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v2",
+          "label" : "Passport Expiry Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v3",
+          "label" : "Country of Issuance",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v3",
+          "label" : "Nationality",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v3",
+          "label" : "Birth Date",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : ""
+      } ],
+      "label" : "Passport Details",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpTravelProfile",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v1",
+          "label" : "Airline Frequent Flyer Number",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v2",
+          "label" : "Hotel Loyalty Numbers",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v3",
+          "label" : "Other Numbers e.g Hertz, Avis",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : ""
+      } ],
+      "label" : "Loyalty Programmes",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpTravelProfile",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v1",
+          "label" : "Flight Preferences e.g. Window seat",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v2",
+          "label" : "Hotel Preferences e.g. Gym",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : ""
+          },
+          "columnId" : "v3",
+          "label" : "Other",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : ""
+      } ],
+      "label" : "Preferences",
+      "type" : "fieldSet"
+    } ],
+    "title" : {
+      "label" : "Your Travel Profile",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "action" : "AUXILIARY",
+        "label" : "Back",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "root"
+        }
+      }, {
+        "action" : "PRIMARY",
+        "label" : "Edit Travel Profile",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "EditTravelProfile"
+        }
+      }, {
+        "id" : "hello",
+        "label" : "Hello Ellen, Hugh, Gavin!",
+        "type" : "text",
+        "value" : "Welcome from Workday!"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "ViewTravelProfile",
+  "endPoints" : [ ]
+}

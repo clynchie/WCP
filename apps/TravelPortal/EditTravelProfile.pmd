@@ -1,0 +1,47 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "View Booked Trips",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "action" : "AUXILIARY",
+        "label" : "Back",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "root"
+        }
+      }, {
+        "id" : "hello",
+        "label" : "Hello Ellen, Hugh, Gavin!",
+        "type" : "text",
+        "value" : "Welcome from Workday!"
+      }, {
+        "label" : "text",
+        "type" : "text",
+        "value" : "Use for a few words.",
+        "enabled" : "true"
+      }, {
+        "label" : "textArea",
+        "type" : "textArea",
+        "value" : "Use when you want to implement text longer than a few words.\nReally long even.",
+        "enabled" : "true"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "EditTravelProfile",
+  "endPoints" : [ ]
+}

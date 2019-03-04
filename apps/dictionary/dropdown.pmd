@@ -1,0 +1,73 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "dropdown",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "header"
+      }, {
+        "displayKey" : "name",
+        "idKey" : "ISO_3166_1_Alpha_3_Code",
+        "valueOutBinding" : "demoEndPoint.value",
+        "values" : "${countries.items}",
+        "label" : "Country - Reference Data",
+        "id" : "country",
+        "type" : "dropdown"
+      }, {
+        "selectedValues" : "${list:toList('id2')}",
+        "instanceList" : [ {
+          "id" : "id1",
+          "descriptor" : "Option 1"
+        }, {
+          "id" : "id2",
+          "descriptor" : "Option 2"
+        } ],
+        "label" : "Hardcoded Data 1",
+        "id" : "hardcoded",
+        "type" : "dropdown"
+      }, {
+        "label" : "IDs Selected from Dropdowns",
+        "type" : "text",
+        "value" : "Country: ${country.value[0]}\nHardcoded Data 1: ${hardcoded.value[0]}",
+        "enabled" : "false"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "exampleDog",
+      "headers" : [ {
+        "name" : "content-type",
+        "value" : "application/json"
+      } ],
+      "name" : "exampleEndPoint",
+      "authType" : "noauth",
+      "httpMethod" : "POST",
+      "url" : "/breed/basenji/images"
+    } ]
+  },
+  "id" : "dropdown",
+  "endPoints" : [ {
+    "baseUrlType" : "wdayRef",
+    "bestEffort" : true,
+    "name" : "countries",
+    "authType" : "sso",
+    "url" : "/country/vers/latest/items?pageLimit=15"
+  } ]
+}

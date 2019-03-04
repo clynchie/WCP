@@ -1,0 +1,36 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "Create New Booking",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "action" : "AUXILIARY",
+        "label" : "Back",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "root"
+        }
+      }, {
+        "id" : "hello",
+        "label" : "Hello Ellen, Hugh, Gavin!",
+        "type" : "text",
+        "value" : "Welcome from Workday!"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "CreateNewBooking",
+  "endPoints" : [ ]
+}

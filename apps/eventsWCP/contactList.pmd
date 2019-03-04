@@ -1,0 +1,65 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "children" : [ {
+        "action" : "LINK",
+        "id" : "homePageButton96",
+        "label" : "⤺ Back to Home",
+        "type" : "button",
+        "taskReference" : {
+          "type" : "taskReference",
+          "taskId" : "home"
+        }
+      }, {
+        "gridType" : "LIST",
+        "rowVariableName" : "contacts",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${contacts.name}"
+          },
+          "columnId" : "v1",
+          "label" : "Name",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${contacts.email}"
+          },
+          "columnId" : "v2",
+          "label" : "Email",
+          "type" : "column"
+        } ],
+        "id" : "raasCallContacts",
+        "type" : "grid",
+        "rows" : "${contacts.Report_Entry[0].Events_Contact_List_group}"
+      }, {
+        "action" : "PRIMARY",
+        "id" : "homePageButton96",
+        "label" : "Add Contact",
+        "type" : "button",
+        "taskReference" : {
+          "type" : "taskReference",
+          "taskId" : "contactList"
+        }
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "contactList",
+  "endPoints" : [ {
+    "baseUrlType" : "RAAS",
+    "name" : "contacts",
+    "authType" : "sso",
+    "url" : "lmcneil/ContactList?format=json"
+  } ]
+}

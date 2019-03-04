@@ -1,0 +1,63 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "File Upload: Upload Image",
+      "type" : "title"
+    },
+    "body" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "header"
+      }, {
+        "valueOutBinding" : "fileSubmit",
+        "id" : "file",
+        "label" : "Upload a .jpg image file to this folder (ID: ${queryParams.folderId})",
+        "singular" : "${true}",
+        "type" : "fileUploader",
+        "fileTypes" : "jpg"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "wdayDoc",
+      "name" : "fileSubmit",
+      "authType" : "sso",
+      "url" : "/folders/${queryParams.folderId}/items"
+    }, {
+      "values" : [ {
+        "outboundPath" : "uploadInfo",
+        "value" : "${fileSubmit}"
+      } ],
+      "name" : "outboundFlowVariable",
+      "type" : "outboundVariable",
+      "variableScope" : "flow"
+    }, {
+      "values" : [ {
+        "outboundPath" : "uploadedImage",
+        "value" : "${fileSubmit.id}"
+      } ],
+      "name" : "outboundSessionVariable",
+      "type" : "outboundVariable",
+      "variableScope" : "session"
+    } ]
+  },
+  "id" : "fileUploaderUpload",
+  "endPoints" : [ {
+    "baseUrlType" : "wdayDoc",
+    "name" : "folder",
+    "authType" : "sso",
+    "url" : "/folders/${queryParams.folderId}"
+  } ]
+}

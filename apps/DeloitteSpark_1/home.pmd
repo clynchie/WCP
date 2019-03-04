@@ -1,0 +1,50 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "Deloitte Spark",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "id" : "hello",
+        "label" : "Hello Liam, Ella, David, Abhishek and Declan!",
+        "type" : "text",
+        "value" : "Welcome to Workday Cloud Platform!"
+      }, {
+        "action" : "PRIMARY",
+        "label" : "Generate Spark",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "GenerateSpark"
+        }
+      }, {
+        "action" : "PRIMARY",
+        "label" : "View Sparks",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "ViewSparks"
+        }
+      }, {
+        "action" : "PRIMARY",
+        "label" : "Leaderboard",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "Leaderboard"
+        }
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "home"
+}

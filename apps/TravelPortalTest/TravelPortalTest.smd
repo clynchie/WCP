@@ -1,0 +1,56 @@
+{
+  "id" : "TravelPortalTest",
+  "applicationId" : "TravelPortalTest",
+  "siteId" : "TravelPortalTest",
+  "tasks" : [ {
+    "id" : "root",
+    "routingPattern" : "/",
+    "page" : {
+      "id" : "home"
+    },
+    "pageId" : "home"
+  }, {
+    "id" : "ViewBookedTrips",
+    "routingPattern" : "ViewBookedTrips",
+    "page" : {
+      "id" : "ViewBookedTrips"
+    },
+    "pageId" : "ViewBookedTrips"
+  }, {
+    "id" : "CreateNewBooking",
+    "routingPattern" : "CreateNewBooking",
+    "page" : {
+      "id" : "CreateNewBooking"
+    },
+    "pageId" : "CreateNewBooking"
+  }, {
+    "id" : "ViewTravelProfile",
+    "routingPattern" : "ViewTravelProfile",
+    "page" : {
+      "id" : "ViewTravelProfile"
+    },
+    "pageId" : "ViewTravelProfile"
+  } ],
+  "languages" : [ {
+    "code" : "en-US",
+    "description" : "English"
+  } ],
+  "auth" : {
+    "type" : "SSO"
+  },
+  "siteAuth" : {
+    "authTypes" : [ {
+      "scheme" : "SSO",
+      "id" : "sso",
+      "authenticationScheme" : "SSO"
+    } ],
+    "defaultId" : "sso"
+  },
+  "appProperties" : [ ],
+  "cdnEnabled" : true,
+  "ssoSite" : true,
+  "dataProviders" : [ {
+    "key" : "EXAMPLE",
+    "value" : "https://dog.ceo/api"
+  } ]
+}

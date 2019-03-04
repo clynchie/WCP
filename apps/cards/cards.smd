@@ -1,0 +1,101 @@
+{
+  "id" : "cards",
+  "applicationId" : "cards",
+  "siteId" : "cards",
+  "tasks" : [ {
+    "id" : "home",
+    "routingPattern" : "/",
+    "page" : {
+      "id" : "home"
+    },
+    "pageId" : "home"
+  }, {
+    "id" : "order",
+    "routingPattern" : "order",
+    "page" : {
+      "id" : "order"
+    },
+    "pageId" : "order"
+  }, {
+    "id" : "submit",
+    "routingPattern" : "submit",
+    "page" : {
+      "id" : "submit"
+    },
+    "pageId" : "submit"
+  }, {
+    "id" : "confirm",
+    "routingPattern" : "confirm",
+    "page" : {
+      "id" : "confirm"
+    },
+    "pageId" : "confirm"
+  }, {
+    "id" : "history",
+    "routingPattern" : "history",
+    "page" : {
+      "id" : "history"
+    },
+    "pageId" : "history"
+  } ],
+  "flowDefinitions" : [ {
+    "id" : "flow",
+    "flowSteps" : [ {
+      "id" : "order",
+      "transitions" : [ {
+        "id" : "submit",
+        "order" : "a",
+        "value" : "submit",
+        "condition" : "true"
+      } ],
+      "startsFlow" : true,
+      "taskId" : "order"
+    }, {
+      "id" : "submit",
+      "transitions" : [ {
+        "id" : "confirm",
+        "order" : "a",
+        "value" : "confirm",
+        "condition" : "true"
+      } ],
+      "taskId" : "submit",
+      "descriptor" : "Submit business card order"
+    }, {
+      "id" : "confirm",
+      "endsFlow" : true,
+      "taskId" : "confirm"
+    } ]
+  } ],
+  "languages" : [ {
+    "code" : "en-US",
+    "description" : "English"
+  } ],
+  "titles" : [ {
+    "value" : "Order Business Cards Reference Application",
+    "languageCode" : "en-US"
+  } ],
+  "auth" : {
+    "type" : "SSO"
+  },
+  "siteAuth" : {
+    "authTypes" : [ {
+      "scheme" : "SSO",
+      "id" : "sso",
+      "authenticationScheme" : "SSO"
+    } ],
+    "defaultId" : "sso"
+  },
+  "appProperties" : [ ],
+  "cdnEnabled" : true,
+  "ssoSite" : true,
+  "dataProviders" : [ {
+    "key" : "workdayReferenceData",
+    "value" : "https://api.workday.com/referenceData/"
+  }, {
+    "key" : "workdayCommon",
+    "value" : "https://api.workday.com/common/v1/"
+  }, {
+    "key" : "workdayProcurement",
+    "value" : "https://api.workday.com/procurement/v1/"
+  } ]
+}

@@ -1,0 +1,25 @@
+{
+  "id" : "ViewSparks",
+  "endPoints" : [ ],
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "body" : {
+      "type" : "section",
+      "horizontal" : false,
+      "children" : [ {
+        "type" : "text",
+        "id" : "hello",
+        "label" : "View Sparks",
+        "value" : "Welcome from Workday!"
+      } ]
+    },
+    "footer" : {
+      "type" : "footer",
+      "children" : [ {
+        "type" : "richText",
+        "enabled" : "false",
+        "value" : "Powered By WCP"
+      } ]
+    }
+  }
+}

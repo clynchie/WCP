@@ -1,0 +1,615 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "stdFooter"
+      } ],
+      "type" : "footer"
+    },
+    "tabs" : [ {
+      "horizontal" : false,
+      "title" : "Explore The Marketplace",
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBusiness",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Owner",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Department",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.gigDescription}"
+          },
+          "columnId" : "v4",
+          "label" : "Description",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.gigSkills}"
+          },
+          "columnId" : "v5",
+          "label" : "Skills",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpBusiness.deliveryDate}"
+          },
+          "columnId" : "v6",
+          "label" : "Delivery Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpBusiness.bidEndDate}"
+          },
+          "columnId" : "v7",
+          "label" : "Application End Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "id" : "placeBid",
+            "label" : "Bid For Gig",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('raasObjectID', wcpBusiness.workdayID) )}",
+              "taskId" : "applyForGig"
+            }
+          },
+          "columnId" : "v9",
+          "label" : "Apply",
+          "type" : "column"
+        } ],
+        "id" : "raasCallBusDev",
+        "type" : "grid",
+        "rows" : "${wcpBusiness.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Business Development",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpOperations",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOperations.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Owner",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOperations.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Department",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOperations.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOperations.gigDescription}"
+          },
+          "columnId" : "v4",
+          "label" : "Description",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOperations.gigSkills}"
+          },
+          "columnId" : "v5",
+          "label" : "Skills",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpOperations.deliveryDate}"
+          },
+          "columnId" : "v6",
+          "label" : "Delivery Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpOperations.bidEndDate}"
+          },
+          "columnId" : "v7",
+          "label" : "Application End Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "id" : "placeBid",
+            "label" : "Bid For Gig",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('raasObjectID', wcpOperations.workdayID) )}",
+              "taskId" : "applyForGig"
+            }
+          },
+          "columnId" : "v9",
+          "label" : "Apply",
+          "type" : "column"
+        } ],
+        "id" : "raasCallOperations",
+        "type" : "grid",
+        "rows" : "${wcpOperations.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Operations",
+      "type" : "fieldSet",
+      "title" : "Explore The Marketplace"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpCSR",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpCSR.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Owner",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpCSR.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Department",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpCSR.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpCSR.gigDescription}"
+          },
+          "columnId" : "v4",
+          "label" : "Description",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpCSR.gigSkills}"
+          },
+          "columnId" : "v5",
+          "label" : "Skills",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpCSR.deliveryDate}"
+          },
+          "columnId" : "v6",
+          "label" : "Delivery Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpCSR.bidEndDate}"
+          },
+          "columnId" : "v7",
+          "label" : "Application End Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "id" : "placeBid",
+            "label" : "Bid For Gig",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('raasObjectID', wcpCSR.workdayID) )}",
+              "taskId" : "applyForGig"
+            }
+          },
+          "columnId" : "v9",
+          "label" : "Apply",
+          "type" : "column"
+        } ],
+        "id" : "raasCallCSR",
+        "type" : "grid",
+        "rows" : "${wcpCSR.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Corporate Responsibility",
+      "type" : "fieldSet",
+      "title" : "Explore The Marketplace"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpMarketing",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpMarketing.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Owner",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpMarketing.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Department",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpMarketing.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpMarketing.gigDescription}"
+          },
+          "columnId" : "v4",
+          "label" : "Description",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpMarketing.gigSkills}"
+          },
+          "columnId" : "v5",
+          "label" : "Skills",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpMarketing.deliveryDate}"
+          },
+          "columnId" : "v6",
+          "label" : "Delivery Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpMarketing.bidEndDate}"
+          },
+          "columnId" : "v7",
+          "label" : "Application End Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "id" : "placeBid",
+            "label" : "Bid For Gig",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('raasObjectID', wcpMarketing.workdayID) )}",
+              "taskId" : "applyForGig"
+            }
+          },
+          "columnId" : "v9",
+          "label" : "Apply",
+          "type" : "column"
+        } ],
+        "id" : "raasCallMarketing",
+        "type" : "grid",
+        "rows" : "${wcpMarketing.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Marketing",
+      "type" : "fieldSet",
+      "title" : "Explore The Marketplace"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpTalentDev",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpTalentDev.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Owner",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpTalentDev.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Department",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpTalentDev.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpTalentDev.gigDescription}"
+          },
+          "columnId" : "v4",
+          "label" : "Description",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpTalentDev.gigSkills}"
+          },
+          "columnId" : "v5",
+          "label" : "Skills",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpTalentDev.deliveryDate}"
+          },
+          "columnId" : "v6",
+          "label" : "Delivery Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpTalentDev.bidEndDate}"
+          },
+          "columnId" : "v7",
+          "label" : "Application End Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "id" : "placeBid",
+            "label" : "Bid For Gig",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('raasObjectID', wcpTalentDev.workdayID) )}",
+              "taskId" : "applyForGig"
+            }
+          },
+          "columnId" : "v9",
+          "label" : "Apply",
+          "type" : "column"
+        } ],
+        "id" : "raasCallTalentDev",
+        "type" : "grid",
+        "rows" : "${wcpTalentDev.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Talent Development",
+      "type" : "fieldSet",
+      "title" : "Explore The Marketplace"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpOther",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOther.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Gig Owner",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOther.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Department",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOther.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOther.gigDescription}"
+          },
+          "columnId" : "v4",
+          "label" : "Description",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpOther.gigSkills}"
+          },
+          "columnId" : "v5",
+          "label" : "Skills",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpOther.deliveryDate}"
+          },
+          "columnId" : "v6",
+          "label" : "Delivery Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "date",
+            "value" : "${wcpOther.bidEndDate}"
+          },
+          "columnId" : "v7",
+          "label" : "Application End Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "action" : "PRIMARY",
+            "id" : "placeBid",
+            "label" : "Bid For Gig",
+            "type" : "button",
+            "taskReference" : {
+              "parameters" : "${json:create(json:attribute('raasObjectID', wcpOther.workdayID) )}",
+              "taskId" : "applyForGig"
+            }
+          },
+          "columnId" : "v9",
+          "label" : "Apply",
+          "type" : "column"
+        } ],
+        "id" : "raasCallOther",
+        "type" : "grid",
+        "rows" : "${wcpOther.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Other",
+      "type" : "fieldSet",
+      "title" : "Explore The Marketplace"
+    } ],
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "type" : "section",
+        "title" : "Sections - Horizontal With columnWidthRatios (note: to use columnWidthRatios, a title cannot be used)"
+      }, {
+        "type" : "richText",
+        "value" : "<b>The Deloitte Gig Marketplace is an app where you can post and review gigs. Gigs can be any piece of work where you need some assistance in a different skill or some extra time, post it here and let workers on the bench help you. Post the gig into the relevant category below and wait for the bidders to respond. Once someone with the right skills and background bids, select them and they can perform the task for you. When they’ve finished, give them feedback on their help. If you have availability and capability to assist in a bid, simply bid and wait to be selected. Explore below!</b> ",
+        "enabled" : "false",
+        "required" : "false"
+      }, {
+        "horizontal" : true,
+        "columnWidthRatios" : [ 0.5, 0.5, 0.5 ],
+        "children" : [ {
+          "children" : [ {
+            "id" : "homePageEmptyButtom2",
+            "type" : "richText",
+            "value" : "<h1 style=\"font-size:60px;\"></h1>"
+          }, {
+            "action" : "PRIMARY",
+            "id" : "homePageButton7",
+            "label" : "Create a Gig",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "createGig"
+            }
+          } ],
+          "type" : "section"
+        }, {
+          "children" : [ {
+            "id" : "homePageEmptyButtom3",
+            "type" : "richText",
+            "value" : "<h1 style=\"font-size:60px;\"></h1>"
+          }, {
+            "action" : "PRIMARY",
+            "id" : "homePageButton8",
+            "label" : "My Gigs",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "myGigs"
+            }
+          } ],
+          "type" : "section"
+        }, {
+          "children" : [ {
+            "id" : "homePageEmptyButtom4",
+            "type" : "richText",
+            "value" : "<h1 style=\"font-size:60px;\"></h1>"
+          }, {
+            "action" : "PRIMARY",
+            "id" : "homePageButton9",
+            "label" : "Give Feedback",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "giveFeedback"
+            }
+          }, {
+            "id" : "homePageEmptyButtom5",
+            "type" : "richText",
+            "value" : "<h1 style=\"font-size:40px;\"></h1>"
+          } ],
+          "type" : "section"
+        } ],
+        "type" : "section"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "home",
+  "endPoints" : [ {
+    "baseUrlType" : "RAAS",
+    "name" : "wcpOperations",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Operations?format=json"
+  }, {
+    "baseUrlType" : "RAAS",
+    "name" : "wcpBusiness",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Business_Development?format=json"
+  }, {
+    "baseUrlType" : "RAAS",
+    "name" : "wcpCSR",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_CSR?format=json"
+  }, {
+    "baseUrlType" : "RAAS",
+    "name" : "wcpMarketing",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Marketing?format=json"
+  }, {
+    "baseUrlType" : "RAAS",
+    "name" : "wcpTalentDev",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Talent_Development?format=json"
+  }, {
+    "baseUrlType" : "RAAS",
+    "name" : "wcpOther",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Other?format=json"
+  } ]
+}

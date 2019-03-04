@@ -1,0 +1,54 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "stdFooter"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "children" : [ {
+          "valueOutBinding" : "WcpBids.bidStatus.id",
+          "instanceList" : [ {
+            "id" : "accepted",
+            "descriptor" : "Accepted"
+          }, {
+            "id" : "denied",
+            "descriptor" : "Not Required"
+          } ],
+          "label" : "Bid Status",
+          "id" : "status",
+          "type" : "instanceList",
+          "required" : "true"
+        }, {
+          "label" : "Please reach out to bidder using email outside Workday.",
+          "type" : "text",
+          "enabled" : "False"
+        } ],
+        "type" : "fieldSet",
+        "title" : "Respond to Bidder:"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "CUSTOMOBJECT",
+      "name" : "WcpBids",
+      "authType" : "sso",
+      "httpMethod" : "PUT",
+      "url" : "/wcpCompanyGigBids/${string:substring(queryParams.workdayid, '0', '32')}"
+    } ]
+  },
+  "id" : "respondToBidder",
+  "endPoints" : [ {
+    "baseUrlType" : "CUSTOMOBJECT",
+    "name" : "bids",
+    "authType" : "sso",
+    "url" : "/wcpCompanyGigBids/${string:substring(queryParams.workdayid, '0', '32')}"
+  } ]
+}

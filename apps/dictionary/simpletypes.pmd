@@ -1,0 +1,88 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "Simple Types",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "header"
+      }, {
+        "label" : "text",
+        "type" : "text",
+        "value" : "Use for a few words.",
+        "enabled" : "true"
+      }, {
+        "label" : "textArea",
+        "type" : "textArea",
+        "value" : "Use when you want to implement text longer than a few words.\nReally long even.",
+        "enabled" : "true"
+      }, {
+        "label" : "richText",
+        "type" : "richText",
+        "value" : "Use when you\nwant<br>to get <h1 style='color:green;'>really fancy</h1> with <i>italics</i>, <b>bolding</b>, <u>underline</u> <span style='color: red; font-size: 8px;'>(all kinds of crazy stuff)</span>.",
+        "enabled" : "false"
+      }, {
+        "label" : "or to allow richText input",
+        "type" : "richText",
+        "value" : "in a <b>fancy</b> manner",
+        "enabled" : "true"
+      }, {
+        "label" : "number",
+        "type" : "number",
+        "value" : "87",
+        "enabled" : "false"
+      }, {
+        "label" : "checkBox",
+        "type" : "checkBox",
+        "value" : "true"
+      }, {
+        "label" : "time",
+        "type" : "time",
+        "value" : "01:23 AM",
+        "enabled" : "true"
+      }, {
+        "label" : "date",
+        "id" : "dateField",
+        "type" : "date",
+        "value" : "${date:getTodaysDate(clientTimeZone)}",
+        "enabled" : "true"
+      }, {
+        "label" : "day after date selected above (dynamically set)",
+        "type" : "date",
+        "value" : "${date:add(dateField.value,'DAY',1)}",
+        "enabled" : "false"
+      }, {
+        "label" : "formatted date (in Istanbul, 3 days ago)",
+        "type" : "text",
+        "value" : "${date:format(date:add(date:parseDateString(date:getTodaysDate(date:getDateTimeZone('Europe/Istanbul'))),'DAY',-3),'d MMM y G')}",
+        "enabled" : "false"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "exampleDog",
+      "name" : "exampleEndPoint",
+      "authType" : "noauth",
+      "httpMethod" : "POST",
+      "url" : "/breed/basenji/images"
+    } ],
+    "_comment" : "The only reason outboundData is being used here is to show how some of these tags would appear in an edit page."
+  },
+  "id" : "simpletypes"
+}

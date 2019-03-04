@@ -1,0 +1,63 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "Images",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "header"
+      }, {
+        "type" : "text",
+        "value" : "For all images, there are very limited options to resize."
+      }, {
+        "imageUri" : "https://cdn.workday.com/blogs/uploads/2015/03/wday_logo_dub_circle_600x600.png",
+        "label" : "Image by URL",
+        "type" : "image"
+      }, {
+        "imageUri" : "https://cdn.workday.com/blogs/uploads/2015/03/wday_logo_dub_circle_600x600.png",
+        "userPhoto" : "true",
+        "label" : "Shrink Image",
+        "type" : "image"
+      }, {
+        "label" : "From Document Management",
+        "type" : "text",
+        "value" : "This example will show the most recent image set in the file upload page within the current user session (does not persist between login/logouts)."
+      }, {
+        "helpText" : "You need to run the File Upload task before the following image will show.",
+        "_comment" : "Only will show button if the uploadedImage session variable is null.",
+        "action" : "PRIMARY",
+        "label" : "File Upload",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "fileUploaderCreateFolder"
+        },
+        "render" : "${pmdSessionVariables.uploadedImage eq null}"
+      }, {
+        "endPoint" : {
+          "baseUrlType" : "wdayDoc",
+          "authType" : "sso",
+          "url" : "/file/${pmdSessionVariables.uploadedImage}"
+        },
+        "_comment" : "Only will show image if the uploadedImage session variable is set.",
+        "type" : "image",
+        "render" : "${pmdSessionVariables.uploadedImage != null}"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "images"
+}

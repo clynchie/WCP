@@ -1,0 +1,129 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP <br /> Developed By Deloitte Ireland",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "action" : "LINK",
+        "id" : "homePageButton96",
+        "label" : "⤺ Back to Home",
+        "type" : "button",
+        "taskReference" : {
+          "type" : "taskReference",
+          "taskId" : "home"
+        }
+      }, {
+        "value" : "Please complete the following fields:",
+        "type" : "text",
+        "enabled" : "false"
+      }, {
+        "label" : "Name",
+        "valueOutBinding" : "deloitteEvents.name",
+        "type" : "text",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "Description",
+        "valueOutBinding" : "deloitteEvents.description",
+        "type" : "textArea",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "When is the Event?",
+        "valueOutBinding" : "deloitteEvents.date",
+        "type" : "date",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "gigMarketplaceGigs.gigSkills.id",
+        "instanceList" : [ {
+          "id" : "hiking",
+          "descriptor" : "Hiking"
+        }, {
+          "id" : "golf",
+          "descriptor" : "Excel Skills"
+        }, {
+          "id" : "analytical",
+          "descriptor" : "Analytical Skills"
+        }, {
+          "id" : "bigData",
+          "descriptor" : "Big Data"
+        }, {
+          "id" : "BusinessStrategy",
+          "descriptor" : "Business Strategy"
+        }, {
+          "id" : "projectManagement",
+          "descriptor" : "Project Management"
+        }, {
+          "id" : "criticalThinking",
+          "descriptor" : "Critical Thinking"
+        } ],
+        "label" : "Event Type",
+        "type" : "dropdown",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "What time is the Event?",
+        "valueOutBinding" : "deloitteEvents.time",
+        "type" : "time",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "Where is the event?",
+        "valueOutBinding" : "deloitteEvents.location",
+        "type" : "textArea",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "Cost",
+        "valueOutBinding" : "deloitteEvents.cost",
+        "type" : "text",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "label" : "Contact",
+        "valueOutBinding" : "deloitteEvents.contact",
+        "type" : "text",
+        "enabled" : "true",
+        "required" : "true"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "CUSTOMOBJECT",
+      "headers" : [ {
+        "name" : "content-type",
+        "value" : "application/json"
+      } ],
+      "values" : [ {
+        "outboundPath" : "company.id",
+        "value" : "9aa286a0d84047eb9147586842cc50c1"
+      } ],
+      "name" : "deloitteEvents",
+      "authType" : "sso",
+      "httpMethod" : "POST",
+      "url" : "/deloitteEvents/9aa286a0d84047eb9147586842cc50c1"
+    } ],
+    "responseErrorDetail" : {
+      "errorSummary" : "${error}",
+      "errors" : "${list:mapAttribute(errors,'error')}"
+    }
+  },
+  "id" : "createEvent",
+  "endPoints" : [ {
+    "baseUrlType" : "WORKER",
+    "name" : "worker",
+    "authType" : "sso",
+    "url" : "/me"
+  } ]
+}

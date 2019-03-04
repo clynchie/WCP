@@ -1,0 +1,140 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "tabs" : [ {
+      "children" : [ {
+        "children" : [ {
+          "horizontal" : true,
+          "columnWidthRatios" : [ 0.25, 0.75 ],
+          "children" : [ {
+            "columnWidthRatios" : [ 0.5, 0.5 ],
+            "children" : [ {
+              "type" : "richText",
+              "value" : "Welcome to the <b>Tab 1</b>!  Tabs are a tag on the presentation layer, which allow you to stack multiple views on top of one another.  For the tabs function to work, you must have two tabs.   One tab will break the template.  Also be careful as to which tags you use when tabs are in play.   Certain tags might break the tab functionality<br/><br/>  This is an example of a main page with a grid, and a sample chart on the second tab."
+            } ],
+            "type" : "section",
+            "title" : "Sample Text"
+          }, {
+            "children" : [ {
+              "gridType" : "LIST",
+              "rowVariableName" : "country",
+              "columns" : [ {
+                "cellTemplate" : {
+                  "type" : "text",
+                  "value" : "${country.name}"
+                },
+                "columnId" : "country0",
+                "id" : "country0",
+                "label" : "Country Name",
+                "type" : "column"
+              }, {
+                "cellTemplate" : {
+                  "type" : "text",
+                  "value" : "${country['ISO_3166_1_Alpha_2_Code']}"
+                },
+                "columnId" : "country1",
+                "id" : "country1",
+                "label" : "ISO Alpha 2 Code",
+                "type" : "column"
+              }, {
+                "cellTemplate" : {
+                  "type" : "text",
+                  "value" : "${country['ISO_3166_1_Alpha_3_Code']}"
+                },
+                "columnId" : "country2",
+                "id" : "country2",
+                "label" : "ISO Alpha 3 Coder",
+                "type" : "column"
+              } ],
+              "id" : "sampleGrid",
+              "type" : "grid",
+              "rows" : "${countries.items}"
+            } ],
+            "type" : "section"
+          } ],
+          "type" : "section"
+        } ],
+        "type" : "section"
+      } ],
+      "label" : "Tab 1",
+      "type" : "section"
+    }, {
+      "_comment" : "This is the section for the second tab.  It uses the numeric ISO code for county as the number",
+      "children" : [ {
+        "type" : "text",
+        "value" : "Here is a sample graph"
+      }, {
+        "horizontalAxisLabels" : {
+          "binding" : "${row.name}",
+          "label" : "Country",
+          "type" : "chartDimension"
+        },
+        "verticalAxisIncrementValue" : {
+          "axisValue" : 100,
+          "useAxisValue" : true,
+          "type" : "chartAxisProperty"
+        },
+        "comparisonLineLabel" : "Grand Total",
+        "rowVariableName" : "row",
+        "verticalAxisTitle" : "ISO Code",
+        "verticalAxisMinimumValue" : {
+          "axisValue" : 0,
+          "useAxisValue" : true,
+          "type" : "chartAxisProperty"
+        },
+        "metrics" : [ {
+          "binding" : "${row['ISO_3166_1_Numeric_3_Code']}",
+          "label" : "ISO_3166_1_Numeric_3_Code",
+          "type" : "chartMetric"
+        } ],
+        "type" : "clusteredColumnChart",
+        "rows" : "${countries.items}",
+        "comparisonLinePosition" : 1000
+      } ],
+      "label" : "Tab 2",
+      "type" : "section"
+    } ],
+    "title" : {
+      "label" : "tabs",
+      "type" : "title"
+    },
+    "body" : {
+      "children" : [ {
+        "horizontal" : true,
+        "children" : [ {
+          "type" : "pod",
+          "podId" : "header"
+        }, {
+          "label" : "tabs",
+          "type" : "text",
+          "value" : "When using tabs, a body tag (this white box) is always required. There must be at least one element within the body tag or the tabs may not display properly. Note that the body will appear above the tabs, regardless of order in the PMD."
+        } ],
+        "type" : "section"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "tabs",
+  "endPoints" : [ {
+    "baseUrlType" : "wdayRef",
+    "bestEffort" : true,
+    "name" : "countries",
+    "authType" : "sso",
+    "url" : "/country/vers/latest/items?pageLimit=20"
+  }, {
+    "baseUrlType" : "wdayCom",
+    "bestEffort" : true,
+    "name" : "projects",
+    "authType" : "sso",
+    "url" : "/projects?startDate=2012-01-01&endDate=2014-04-30"
+  } ]
+}

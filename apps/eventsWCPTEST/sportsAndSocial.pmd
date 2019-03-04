@@ -1,0 +1,213 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "tabs" : [ {
+      "horizontal" : false,
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBusiness",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Event",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Location",
+          "type" : "column"
+        } ],
+        "id" : "raasCallBusDev",
+        "type" : "grid",
+        "rows" : "${wcpBusiness.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Golf",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBusiness",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Event",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Location",
+          "type" : "column"
+        } ],
+        "id" : "raasCallBusDev",
+        "type" : "grid",
+        "rows" : "${wcpBusiness.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Cycling",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBusiness",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Event",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Location",
+          "type" : "column"
+        } ],
+        "id" : "raasCallBusDev",
+        "type" : "grid",
+        "rows" : "${wcpBusiness.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Golf",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBusiness",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Event",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Location",
+          "type" : "column"
+        } ],
+        "id" : "raasCallBusDev",
+        "type" : "grid",
+        "rows" : "${wcpBusiness.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Football",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBusiness",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Event",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Date",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.gigTitle}"
+          },
+          "columnId" : "v3",
+          "label" : "Location",
+          "type" : "column"
+        } ],
+        "id" : "raasCallBusDev",
+        "type" : "grid",
+        "rows" : "${wcpBusiness.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Hockey",
+      "type" : "fieldSet"
+    } ],
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "action" : "LINK",
+        "id" : "homePageButton96",
+        "label" : "⤺ Back to Home",
+        "type" : "button",
+        "taskReference" : {
+          "type" : "taskReference",
+          "taskId" : "home"
+        }
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "sportsAndSocial",
+  "endPoints" : [ {
+    "baseUrlType" : "RAAS",
+    "name" : "bidderInformation",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_Company_Bidder_Information?format=json"
+  }, {
+    "baseUrlType" : "RAAS",
+    "name" : "myGigs",
+    "authType" : "sso",
+    "url" : "WCP_Gig_Marketplace_ISU/WCP_My_Gigs?format=json"
+  } ]
+}

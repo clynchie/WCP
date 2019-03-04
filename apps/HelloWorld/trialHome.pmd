@@ -1,0 +1,25 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "id" : "hello",
+        "label" : "Hello World!",
+        "type" : "text",
+        "value" : "Welcome from Workday!"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "trialHome",
+  "endPoints" : [ ]
+}

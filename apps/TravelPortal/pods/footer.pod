@@ -1,0 +1,11 @@
+{
+  "podId" : "footer",
+  "seed" : {
+    "parameters" : [ "special" ],
+    "template" : {
+      "type" : "richText",
+      "enabled" : "${false}",
+      "value" : "${''}Powered By${ '@@special@@' ? '<br>🔥 <b>' : ' '}Workday Cloud Platform${ '@@special@@' ? '</b> 🔥' : ''}"
+    }
+  }
+}

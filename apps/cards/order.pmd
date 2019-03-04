@@ -1,0 +1,133 @@
+{
+  "presentation" : {
+    "standardEditButtonsHidden" : "${false}",
+    "footer" : {
+      "children" : [ {
+        "id" : "footerText",
+        "type" : "richText",
+        "value" : "Powered By Workday Cloud Platform",
+        "enabled" : "false"
+      } ],
+      "id" : "footer",
+      "type" : "footer"
+    },
+    "body" : {
+      "children" : [ {
+        "valueOutBinding" : "workerid",
+        "label" : "ID",
+        "id" : "workerid",
+        "type" : "hidden",
+        "value" : "${selectedWorker.id}"
+      }, {
+        "valueOutBinding" : "name",
+        "label" : "Name",
+        "id" : "name",
+        "type" : "text",
+        "value" : "${selectedWorker.descriptor}",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "title",
+        "label" : "Title",
+        "id" : "title",
+        "type" : "text",
+        "value" : "${selectedWorker.businessTitle}",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "address",
+        "label" : "Address",
+        "id" : "address",
+        "type" : "textArea",
+        "value" : "${selectedWorker.primaryWorkAddressText}",
+        "required" : "true"
+      }, {
+        "displayKey" : "name",
+        "idKey" : "name",
+        "values" : "${countries.items}",
+        "label" : "Country - Reference Data",
+        "id" : "country",
+        "type" : "dropdown",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "phone",
+        "label" : "Phone",
+        "id" : "phone",
+        "type" : "text",
+        "value" : "${selectedWorker.primaryWorkPhone}",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "mobile",
+        "label" : "Mobile",
+        "id" : "mobile",
+        "type" : "text",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "email",
+        "label" : "Email",
+        "id" : "email",
+        "type" : "text",
+        "value" : "${selectedWorker.primaryWorkEmail}",
+        "required" : "true"
+      }, {
+        "label" : "Quantity",
+        "id" : "quantity",
+        "type" : "hidden",
+        "value" : "1"
+      }, {
+        "valueOutBinding" : "memo",
+        "label" : "Memo",
+        "id" : "memo",
+        "type" : "hidden",
+        "value" : "${string:formatListToString('|', list:toList(string:concat('Name:',selectedWorker.descriptor), string:concat('Title:',selectedWorker.businessTitle), string:concat('Address:',selectedWorker.primaryWorkAddressText), 'Country:', string:concat('Phone:',selectedWorker.primaryWorkPhone),'Mobile:',string:concat('Email:',selectedWorker.primaryWorkEmail)))}"
+      } ],
+      "id" : "body",
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "values" : [ {
+        "outboundPath" : "id",
+        "value" : "${workerid.value}"
+      }, {
+        "outboundPath" : "name",
+        "value" : "${name.value}"
+      }, {
+        "outboundPath" : "title",
+        "value" : "${title.value}"
+      }, {
+        "outboundPath" : "address",
+        "value" : "${address.value}"
+      }, {
+        "outboundPath" : "country",
+        "value" : "${country.value}"
+      }, {
+        "outboundPath" : "phone",
+        "value" : "${phone.value}"
+      }, {
+        "outboundPath" : "mobile",
+        "value" : "${mobile.value}"
+      }, {
+        "outboundPath" : "email",
+        "value" : "${email.value}"
+      }, {
+        "outboundPath" : "memo",
+        "value" : "${memo.value}"
+      } ],
+      "name" : "transitionOutboundVars",
+      "type" : "outboundVariable",
+      "variableScope" : "flow"
+    } ]
+  },
+  "id" : "order",
+  "endPoints" : [ {
+    "baseUrlType" : "workdayCommon",
+    "name" : "selectedWorker",
+    "authType" : "sso",
+    "url" : "workers/${queryParams.workerId}"
+  }, {
+    "baseUrlType" : "workdayReferenceData",
+    "name" : "countries",
+    "authType" : "sso",
+    "url" : "country/vers/latest/items"
+  } ]
+}

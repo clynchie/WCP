@@ -1,0 +1,107 @@
+{
+  "presentation" : {
+    "title" : {
+      "label" : "section",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "horizontal" : false,
+        "children" : [ {
+          "children" : [ {
+            "action" : "SECONDARY",
+            "id" : "homePageButton94",
+            "label" : "Create an Event",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "createEvent"
+            }
+          } ],
+          "type" : "section"
+        }, {
+          "children" : [ {
+            "visible" : "false",
+            "action" : "SECONDARY",
+            "id" : "homePageButton98",
+            "label" : "Create an Event",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "home"
+            }
+          } ],
+          "type" : "section"
+        }, {
+          "children" : [ {
+            "action" : "SECONDARY",
+            "id" : "homePageButton93",
+            "label" : "My Events",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "home"
+            }
+          } ],
+          "type" : "section"
+        }, {
+          "children" : [ {
+            "imageUri" : "http://bstrongtogether.org/wp-content/uploads/2017/07/get-involved87616.jpg",
+            "type" : "image"
+          } ],
+          "type" : "section"
+        } ],
+        "type" : "section",
+        "title" : "Welcome to the Deloitte Sports & Social Webpage!"
+      }, {
+        "type" : "section",
+        "title" : "Sections - Horizontal With columnWidthRatios (note: to use columnWidthRatios, a title cannot be used)"
+      }, {
+        "horizontal" : true,
+        "columnWidthRatios" : [ 0.2, 0.2, 0.2 ],
+        "children" : [ {
+          "children" : [ {
+            "action" : "SECONDARY",
+            "id" : "homePageButton106",
+            "label" : "Sports and Social",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "sportsAndSocial"
+            }
+          } ],
+          "type" : "section"
+        }, {
+          "children" : [ {
+            "action" : "SECONDARY",
+            "id" : "homePageButton107",
+            "label" : "Firm Events",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "sportsAndSocial"
+            }
+          } ],
+          "type" : "section"
+        }, {
+          "children" : [ {
+            "action" : "SECONDARY",
+            "id" : "homePageButton96",
+            "label" : "Contact Information",
+            "type" : "button",
+            "taskReference" : {
+              "type" : "taskReference",
+              "taskId" : "contactList"
+            }
+          } ],
+          "type" : "section"
+        } ],
+        "type" : "section"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "home"
+}

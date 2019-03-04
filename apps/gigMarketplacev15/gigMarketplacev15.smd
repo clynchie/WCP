@@ -1,0 +1,25 @@
+{
+  "id" : "gigMarketplacev15",
+  "languages" : [ {
+    "code" : "en-US",
+    "description" : "English"
+  } ],
+  "siteAuth" : {
+    "authTypes" : [ {
+      "scheme" : "SSO",
+      "id" : "sso",
+      "authenticationScheme" : "SSO"
+    } ],
+    "defaultId" : "sso"
+  },
+  "siteId" : "gigMarketplacev15",
+  "titles" : [ {
+    "value" : "Deloitte Gig Marketplace",
+    "languageCode" : "en-US"
+  } ],
+  "auth" : {
+    "type" : "SSO"
+  },
+  "cdnEnabled" : true,
+  "applicationId" : "gigMarketplacev15"
+}

@@ -1,0 +1,188 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${true}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "Presentation Services Dictionary",
+      "type" : "title"
+    },
+    "body" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "<b>Welcome, ${userSessionInfo.userName}, to the Presentation Services Dictionary!</b> This is intended to be a <i>working</i> site with demonstrations of numerous tags. To maximize learning, please follow along in the corresponding PMD and SMD files."
+      }, {
+        "horizontal" : true,
+        "columnWidthRatios" : [ 0.5, 0.5 ],
+        "children" : [ {
+          "children" : [ {
+            "children" : [ {
+              "action" : "LINK",
+              "label" : "Sections",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "sections"
+              }
+            }, {
+              "action" : "LINK",
+              "label" : "Micro Pop-up",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "micro"
+              }
+            }, {
+              "action" : "LINK",
+              "label" : "Tabs",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "tabs"
+              }
+            } ],
+            "type" : "section",
+            "title" : "Page Layout"
+          }, {
+            "children" : [ {
+              "action" : "LINK",
+              "label" : "Simple Types (text, textArea, number, checkBox, date)",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "simpletypes"
+              }
+            }, {
+              "action" : "LINK",
+              "label" : "Buttons and Links",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "buttons"
+              }
+            }, {
+              "action" : "LINK",
+              "label" : "Dropdowns",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "dropdown"
+              }
+            } ],
+            "type" : "section",
+            "title" : "Basic UI Widgets"
+          }, {
+            "children" : [ {
+              "action" : "LINK",
+              "label" : "File Upload in a Flow",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "fileUploaderCreateFolder"
+              }
+            } ],
+            "type" : "section",
+            "title" : "Files and Documents"
+          }, {
+            "children" : [ {
+              "action" : "LINK",
+              "label" : "Grids",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "grids"
+              }
+            } ],
+            "type" : "section",
+            "title" : "Grids"
+          }, {
+            "children" : [ {
+              "action" : "LINK",
+              "label" : "Multi-Select (instanceList)",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "instancelist"
+              }
+            } ],
+            "type" : "section",
+            "title" : "Lists"
+          }, {
+            "children" : [ {
+              "action" : "LINK",
+              "label" : "Images",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "images"
+              }
+            }, {
+              "action" : "LINK",
+              "label" : "Icons (labeledImage)",
+              "type" : "button",
+              "taskReference" : {
+                "taskId" : "labeledImage"
+              }
+            } ],
+            "type" : "section",
+            "title" : "Images"
+          } ],
+          "type" : "section"
+        }, {
+          "children" : [ {
+            "action" : "LINK",
+            "label" : "bubbleChart",
+            "type" : "button",
+            "taskReference" : {
+              "taskId" : "bubbleChart"
+            }
+          }, {
+            "action" : "LINK",
+            "label" : "clusteredBarChart",
+            "type" : "button",
+            "taskReference" : {
+              "taskId" : "clusteredBarChart"
+            }
+          }, {
+            "action" : "LINK",
+            "label" : "clusteredColumnChart",
+            "type" : "button",
+            "taskReference" : {
+              "taskId" : "clusteredColumnChart"
+            }
+          }, {
+            "action" : "LINK",
+            "label" : "lineChart",
+            "type" : "button",
+            "taskReference" : {
+              "taskId" : "lineChart"
+            }
+          }, {
+            "action" : "LINK",
+            "label" : "stackedBarChart",
+            "type" : "button",
+            "taskReference" : {
+              "taskId" : "stackedBarChart"
+            }
+          }, {
+            "action" : "LINK",
+            "label" : "stackedColumnChart",
+            "type" : "button",
+            "taskReference" : {
+              "taskId" : "stackedColumnChart"
+            }
+          }, {
+            "action" : "LINK",
+            "label" : "pieChart",
+            "type" : "button",
+            "taskReference" : {
+              "taskId" : "pieChart"
+            }
+          } ],
+          "type" : "section",
+          "title" : "Charts"
+        } ],
+        "type" : "section"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "home"
+}

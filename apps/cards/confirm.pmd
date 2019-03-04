@@ -1,0 +1,37 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By Workday Cloud Platform",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "children" : [ {
+        "id" : "successMessage",
+        "type" : "richText",
+        "value" : "${string:formatMessage('Your Business Card Order {0} hase been successfully submitted!', requisition.descriptor)}"
+      }, {
+        "action" : "PRIMARY",
+        "id" : "historyButton",
+        "label" : "Order History",
+        "type" : "button",
+        "taskReference" : {
+          "parameters" : "${json:create(json:attribute('workerId', queryParams.requester))}",
+          "taskId" : "history"
+        }
+      } ],
+      "id" : "body",
+      "type" : "section"
+    }
+  },
+  "id" : "confirm",
+  "endPoints" : [ {
+    "baseUrlType" : "workdayProcurement",
+    "name" : "requisition",
+    "authType" : "sso",
+    "url" : "requisitions/${queryParams.requisitionId}"
+  } ]
+}

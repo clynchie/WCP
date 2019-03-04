@@ -1,0 +1,160 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "stdFooter"
+      } ],
+      "type" : "footer"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Here at Deloitte we value client confidentiality. Please be aware that all tasks created will be visible firm wide and client information should not be posted onto the gig market place. For more information on Deloitte’s confidentiality policies please click <a href='https://ie.deloitteresources.com/practice/pages/confidentiality.aspx' target='_Blank'>Here</a> <br /> ",
+        "enabled" : "false",
+        "required" : "false"
+      }, {
+        "valueOutBinding" : "gigMarketplaceGigs.gigTitle",
+        "label" : "Gig Title",
+        "type" : "text",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "id" : "gigDescription",
+        "valueOutBinding" : "gigMarketplaceGigs.gigDescription",
+        "label" : "Description (max 255 characters)",
+        "type" : "textArea",
+        "enabled" : "true",
+        "required" : "true",
+        "helpText" : "Please enter a Gig Description of below 255 Characters",
+        "validations" : [ {
+          "expression" : "${string:length(gigDescription.value) le '255'}",
+          "errorMessage" : "Gig Description should not be greater than 255 characters"
+        } ]
+      }, {
+        "valueOutBinding" : "gigMarketplaceGigs.gigType.id",
+        "instanceList" : [ {
+          "id" : "bus",
+          "descriptor" : "Business Development"
+        }, {
+          "id" : "operations",
+          "descriptor" : "Operations"
+        }, {
+          "id" : "csr",
+          "descriptor" : "Corporate Responsibility"
+        }, {
+          "id" : "marketing",
+          "descriptor" : "Marketing"
+        }, {
+          "id" : "talentDevelopment",
+          "descriptor" : "Talent Development"
+        }, {
+          "id" : "other",
+          "descriptor" : "Other"
+        } ],
+        "label" : "Gig Type",
+        "type" : "dropdown",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "gigMarketplaceGigs.gigSkills.id",
+        "instanceList" : [ {
+          "id" : "presentation",
+          "descriptor" : "Presentation Skills"
+        }, {
+          "id" : "excel",
+          "descriptor" : "Excel Skills"
+        }, {
+          "id" : "analytical",
+          "descriptor" : "Analytical Skills"
+        }, {
+          "id" : "bigData",
+          "descriptor" : "Big Data"
+        }, {
+          "id" : "businessStrategy",
+          "descriptor" : "Business Strategy"
+        }, {
+          "id" : "projectManagement",
+          "descriptor" : "Project Management"
+        }, {
+          "id" : "criticalThinking",
+          "descriptor" : "Critical Thinking"
+        } ],
+        "label" : "Gig Skills",
+        "type" : "dropdown",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "id" : "deliveryDate",
+        "valueOutBinding" : "gigMarketplaceGigs.deliveryDate",
+        "label" : "Gig Delivery Date",
+        "type" : "date",
+        "enabled" : "true",
+        "required" : "true"
+      }, {
+        "id" : "bidEndDate",
+        "valueOutBinding" : "gigMarketplaceGigs.bidEndDate",
+        "label" : "Application End Date",
+        "type" : "date",
+        "enabled" : "true",
+        "required" : "true",
+        "validations" : [ {
+          "expression" : "${bidEndDate.value le deliveryDate.value}",
+          "errorMessage" : "Application End Date must not be later than the Delivery Date"
+        } ]
+      }, {
+        "valueOutBinding" : "gigMarketplaceGigs.workerWid",
+        "label" : "Worker ID",
+        "type" : "hidden",
+        "value" : "${worker.id}",
+        "enabled" : "false",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "gigMarketplaceGigs.workerName",
+        "label" : "Worker Name",
+        "type" : "hidden",
+        "value" : "${worker.descriptor}",
+        "enabled" : "false",
+        "required" : "true"
+      }, {
+        "valueOutBinding" : "gigMarketplaceGigs.workerSupervisoryOrganisation",
+        "label" : "Worker Department",
+        "type" : "hidden",
+        "value" : "${worker.primarySupervisoryOrganization.descriptor}",
+        "enabled" : "false",
+        "required" : "true"
+      } ],
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "CUSTOMOBJECT",
+      "headers" : [ {
+        "name" : "content-type",
+        "value" : "application/json"
+      } ],
+      "values" : [ {
+        "outboundPath" : "company.id",
+        "value" : "be6c97d91bb801d32ecff042963d4d32"
+      } ],
+      "name" : "gigMarketplaceGigs",
+      "authType" : "sso",
+      "httpMethod" : "POST",
+      "url" : "/gigmarketplaceGigsCompany/be6c97d91bb801d32ecff042963d4d32"
+    } ],
+    "responseErrorDetail" : {
+      "errorSummary" : "${error}",
+      "errors" : "${list:mapAttribute(errors,'error')}"
+    }
+  },
+  "id" : "createGig",
+  "endPoints" : [ {
+    "baseUrlType" : "WORKER",
+    "name" : "worker",
+    "authType" : "sso",
+    "url" : "/me"
+  } ]
+}

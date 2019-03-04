@@ -1,0 +1,80 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "clusteredColumnChart",
+      "type" : "title"
+    },
+    "body" : {
+      "children" : [ {
+        "horizontal" : true,
+        "children" : [ {
+          "type" : "pod",
+          "podId" : "header"
+        }, {
+          "label" : "clusteredColumnChart",
+          "type" : "text",
+          "value" : "Please see the below example of a clustered Column Chart.  The metrics are just for demo purposes.  Feel free to edit the PMD, to see the affect on the graph if certain tags are added / removed "
+        }, {
+          "verticalAxisMaximumValue" : {
+            "axisValue" : 1500,
+            "useAxisValue" : true,
+            "type" : "chartAxisProperty"
+          },
+          "horizontalAxisLabels" : {
+            "binding" : "${row.name}",
+            "label" : "Country",
+            "type" : "chartDimension"
+          },
+          "verticalAxisIncrementValue" : {
+            "axisValue" : 100,
+            "useAxisValue" : true,
+            "type" : "chartAxisProperty"
+          },
+          "comparisonLineLabel" : "Grand Total",
+          "_comment" : "The verticalAxisMaximumValue is optional.   If removed, Workday will scale the chart dynamically",
+          "rowVariableName" : "row",
+          "verticalAxisTitle" : "ISO Code",
+          "verticalAxisMinimumValue" : {
+            "axisValue" : 0,
+            "useAxisValue" : true,
+            "type" : "chartAxisProperty"
+          },
+          "metrics" : [ {
+            "binding" : "${row.ISO_3166_1_Numeric_3_Code}",
+            "label" : "ISO_3166_1_Numeric_3_Code",
+            "type" : "chartMetric"
+          } ],
+          "type" : "clusteredColumnChart",
+          "rows" : "${countries.items}",
+          "comparisonLinePosition" : 1000
+        } ],
+        "type" : "section"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "clusteredColumnChart",
+  "endPoints" : [ {
+    "baseUrlType" : "wdayRef",
+    "bestEffort" : true,
+    "name" : "countries",
+    "authType" : "sso",
+    "url" : "/country/vers/latest/items?pageLimit=10"
+  }, {
+    "baseUrlType" : "wdayCom",
+    "bestEffort" : true,
+    "name" : "projects",
+    "authType" : "sso",
+    "url" : "/projects?startDate=2012-01-01&endDate=2014-04-30"
+  } ]
+}

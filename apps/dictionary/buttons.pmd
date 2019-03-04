@@ -1,0 +1,103 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "button, buttonGroup, externalLink",
+      "type" : "title"
+    },
+    "body" : {
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "header"
+      }, {
+        "action" : "PRIMARY",
+        "label" : "Primary",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "home"
+        }
+      }, {
+        "action" : "SECONDARY",
+        "label" : "Secondary",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "home"
+        }
+      }, {
+        "action" : "AUXILIARY",
+        "label" : "Auxiliary",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "home"
+        }
+      }, {
+        "action" : "LINK",
+        "label" : "Link",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "home"
+        }
+      }, {
+        "children" : [ {
+          "action" : "PRIMARY",
+          "label" : "Option 1",
+          "type" : "button",
+          "taskReference" : {
+            "taskId" : "home"
+          }
+        }, {
+          "action" : "PRIMARY",
+          "label" : "Option 2",
+          "type" : "button",
+          "taskReference" : {
+            "taskId" : "home"
+          }
+        }, {
+          "action" : "PRIMARY",
+          "label" : "Option 3",
+          "type" : "button",
+          "taskReference" : {
+            "taskId" : "home"
+          }
+        }, {
+          "action" : "PRIMARY",
+          "label" : "Option 4",
+          "type" : "button",
+          "taskReference" : {
+            "taskId" : "home"
+          }
+        }, {
+          "action" : "PRIMARY",
+          "label" : "Option 5",
+          "type" : "button",
+          "taskReference" : {
+            "taskId" : "home"
+          }
+        } ],
+        "action" : "PRIMARY",
+        "label" : "buttonGroup",
+        "type" : "buttonGroup"
+      }, {
+        "label" : "externalLink",
+        "descriptor" : "Link to an External Site",
+        "type" : "externalLink",
+        "url" : "https://cloud.workday.com/index.html"
+      }, {
+        "descriptor" : "Link to a Workday Task (note that this still opens in a new tab/window)",
+        "type" : "externalLink",
+        "url" : "/${tenant}/d/home.htmld"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "buttons"
+}

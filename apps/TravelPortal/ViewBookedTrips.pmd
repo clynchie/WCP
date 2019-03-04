@@ -1,0 +1,114 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "tabs" : [ {
+      "horizontal" : false,
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBookedTrips",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "Test"
+          },
+          "columnId" : "v1",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "Test"
+          },
+          "columnId" : "v2",
+          "label" : "Location",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : "${}"
+      } ],
+      "label" : "Past Trips",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBusiness",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Location",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : "${wcpBusiness.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Pending Trips",
+      "type" : "fieldSet"
+    }, {
+      "children" : [ {
+        "gridType" : "LIST",
+        "doNotPutInTab" : false,
+        "rowVariableName" : "wcpBusiness",
+        "columns" : [ {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerName}"
+          },
+          "columnId" : "v1",
+          "label" : "Title",
+          "type" : "column"
+        }, {
+          "cellTemplate" : {
+            "type" : "text",
+            "value" : "${wcpBusiness.workerSupervisoryOrganisation}"
+          },
+          "columnId" : "v2",
+          "label" : "Location",
+          "type" : "column"
+        } ],
+        "id" : "test",
+        "type" : "grid",
+        "rows" : "${wcpBusiness.Report_Entry[0].Gigmarketplace_Gigs__Company__group}"
+      } ],
+      "label" : "Future Trips",
+      "type" : "fieldSet"
+    } ],
+    "title" : {
+      "label" : "Your Booked Trips",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "action" : "AUXILIARY",
+        "label" : "Back",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "root"
+        }
+      }, {
+        "id" : "hello",
+        "label" : "Hello Ellen, Hugh, Gavin!",
+        "type" : "text",
+        "value" : "Welcome from Workday!"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "ViewBookedTrips",
+  "endPoints" : [ ]
+}

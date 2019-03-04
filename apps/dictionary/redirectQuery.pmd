@@ -1,0 +1,33 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "type" : "pod",
+        "parameters" : {
+          "special" : "${false}"
+        },
+        "podId" : "footer"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "Redirect: ${queryParams.id}",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "type" : "pod",
+        "podId" : "header"
+      }, {
+        "id" : "redirectVal",
+        "label" : "Sample Redirect",
+        "type" : "text",
+        "value" : "\"id\" from queryParams: ${queryParams.id}"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "redirectQuery"
+}

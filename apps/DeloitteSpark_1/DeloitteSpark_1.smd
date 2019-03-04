@@ -1,0 +1,53 @@
+{
+  "id" : "DeloitteSpark_1",
+  "applicationId" : "DeloitteSpark_1",
+  "siteId" : "DeloitteSpark_1",
+  "tasks" : [ {
+    "id" : "root",
+    "routingPattern" : "/",
+    "page" : {
+      "id" : "home"
+    },
+    "pageId" : "home"
+  }, {
+    "id" : "GenerateSpark",
+    "routingPattern" : "GenerateSpark",
+    "page" : {
+      "id" : "GenerateSpark"
+    },
+    "pageId" : "GenerateSpark"
+  }, {
+    "id" : "ViewSparks",
+    "routingPattern" : "ViewSparks",
+    "page" : {
+      "id" : "ViewSparks"
+    },
+    "pageId" : "ViewSparks"
+  }, {
+    "id" : "Leaderboard",
+    "routingPattern" : "Leaderboard",
+    "page" : {
+      "id" : "Leaderboard"
+    },
+    "pageId" : "Leaderboard"
+  } ],
+  "languages" : [ {
+    "code" : "en-US",
+    "description" : "English"
+  } ],
+  "auth" : {
+    "type" : "SSO"
+  },
+  "siteAuth" : {
+    "authTypes" : [ {
+      "scheme" : "SSO",
+      "id" : "sso",
+      "authenticationScheme" : "SSO"
+    } ],
+    "defaultId" : "sso"
+  },
+  "appProperties" : [ ],
+  "cdnEnabled" : true,
+  "ssoSite" : true,
+  "dataProviders" : [ { } ]
+}

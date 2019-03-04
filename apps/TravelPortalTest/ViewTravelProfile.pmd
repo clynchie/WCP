@@ -1,0 +1,159 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "View Travel Profile",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "children" : [ {
+        "action" : "AUXILIARY",
+        "label" : "Back",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "root"
+        }
+      }, {
+        "action" : "PRIMARY",
+        "label" : "Edit Travel Profile",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "home"
+        }
+      }, {
+        "id" : "hello",
+        "label" : "Passport Details",
+        "type" : "text",
+        "value" : "Please enter information exactly as it is in your passport"
+      }, {
+        "label" : "First name",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Middle name",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Last name",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Passport Number",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Passport expiry date",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Country of issuance",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Nationality",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Date of birth",
+        "id" : "dateField",
+        "type" : "date",
+        "value" : "${date:getTodaysDate(clientTimeZone)}",
+        "enabled" : "true"
+      }, {
+        "id" : "hello",
+        "label" : "Contact Details",
+        "type" : "text",
+        "value" : "Please enter your personal contact information"
+      }, {
+        "label" : "Mobile number ",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Deloitte email address",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "id" : "hello",
+        "label" : "Hotel guarantee",
+        "type" : "text",
+        "value" : "Obligatory if you require hotel bookings outside Ireland. The card is provided as guarantee only, no payments are made to the card."
+      }, {
+        "label" : "Credit / debit card type",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Card number",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Card expiry date",
+        "type" : "date",
+        "value" : "mm/yy",
+        "enabled" : "true"
+      }, {
+        "id" : "hello",
+        "label" : "<h1> Loyalty programmes - names and numbers </h1>",
+        "type" : "text",
+        "value" : "Please provide the name of the rewards scheme provider and your loyalty number"
+      }, {
+        "label" : "Airline frequent flyers",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Hotel loyalty numbers",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Other programmes i.e Hertz, Avis etc.",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "id" : "hello",
+        "label" : "<h1>Preferences</h1>",
+        "type" : "text",
+        "value" : "Please enter any hotel preferences you have"
+      }, {
+        "label" : "Flight preferences i.e window seat",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Hotel preferences i.e hotel with a gym",
+        "type" : "text",
+        "value" : "",
+        "enabled" : "true"
+      }, {
+        "label" : "Other",
+        "type" : "date",
+        "value" : "",
+        "enabled" : "true"
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "ViewTravelProfile",
+  "endPoints" : [ ]
+}

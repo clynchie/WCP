@@ -1,0 +1,50 @@
+{
+  "presentation" : {
+    "headerSize" : "VPS_DEFAULT",
+    "footer" : {
+      "children" : [ {
+        "type" : "richText",
+        "value" : "Powered By WCP",
+        "enabled" : "false"
+      } ],
+      "type" : "footer"
+    },
+    "title" : {
+      "label" : "Travel Profile",
+      "type" : "title"
+    },
+    "body" : {
+      "horizontal" : false,
+      "sorted" : false,
+      "children" : [ {
+        "id" : "hello",
+        "label" : "TEST",
+        "type" : "text",
+        "value" : "Welcome to Workday!"
+      }, {
+        "action" : "PRIMARY",
+        "label" : "View Travel Profile",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "ViewTravelProfile"
+        }
+      }, {
+        "action" : "PRIMARY",
+        "label" : "Create New Booking",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "CreateNewBooking"
+        }
+      }, {
+        "action" : "PRIMARY",
+        "label" : "View Booked Trips",
+        "type" : "button",
+        "taskReference" : {
+          "taskId" : "ViewBookedTrips"
+        }
+      } ],
+      "type" : "section"
+    }
+  },
+  "id" : "home"
+}

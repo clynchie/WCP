@@ -1,0 +1,110 @@
+{
+  "presentation" : {
+    "footer" : {
+      "children" : [ {
+        "id" : "footerText",
+        "type" : "richText",
+        "value" : "Powered By Workday Cloud Platform",
+        "enabled" : "false"
+      } ],
+      "id" : "footer",
+      "type" : "footer"
+    },
+    "body" : {
+      "children" : [ {
+        "valueOutBinding" : "requisition.requisitionLines[0].item.id",
+        "_comment" : "Change the value above to the Workday ID of the business card purchase item that you created inside your tenant.",
+        "label" : "Business Cards - Purchase Item Id",
+        "id" : "itemId",
+        "type" : "hidden",
+        "value" : "478493a2416b01125cae3be5a105c627"
+      }, {
+        "valueOutBinding" : "requisition.requester.id",
+        "label" : "ID",
+        "id" : "id",
+        "type" : "hidden",
+        "value" : "${queryParams.id}"
+      }, {
+        "label" : "Name",
+        "id" : "name",
+        "type" : "readOnlyText",
+        "value" : "${queryParams.name}"
+      }, {
+        "valueOutBinding" : "requisition.memo",
+        "label" : "Order Business Cards for",
+        "id" : "orderfor",
+        "type" : "hidden",
+        "value" : "${string:concat('Business Cards Order for: ',queryParams.name)}"
+      }, {
+        "label" : "Title",
+        "id" : "title",
+        "type" : "readOnlyText",
+        "value" : "${queryParams.title}"
+      }, {
+        "label" : "Address",
+        "id" : "address",
+        "type" : "readOnlyText",
+        "value" : "${queryParams.address}"
+      }, {
+        "label" : "Country",
+        "id" : "country",
+        "type" : "readOnlyText",
+        "value" : "${queryParams.country}"
+      }, {
+        "label" : "Phone",
+        "id" : "phone",
+        "type" : "readOnlyText",
+        "value" : "${queryParams.phone}"
+      }, {
+        "label" : "Mobile",
+        "id" : "mobile",
+        "type" : "readOnlyText",
+        "value" : "${queryParams.mobile}"
+      }, {
+        "label" : "Email",
+        "id" : "email",
+        "type" : "readOnlyText",
+        "value" : "${queryParams.email}"
+      }, {
+        "valueOutBinding" : "requisition.requisitionLines[0].quantity",
+        "label" : "Quantity",
+        "id" : "quantity",
+        "type" : "hidden",
+        "value" : "1"
+      }, {
+        "valueOutBinding" : "requisition.requisitionLines[0].memo",
+        "label" : "Memo",
+        "id" : "memo",
+        "type" : "hidden",
+        "value" : "${string:formatListToString('|', list:toList(string:concat('Name:',queryParams.name), string:concat('Title:',queryParams.title), string:concat('Address:',queryParams.address), string:concat('Country:',queryParams.country),  string:concat('Phone:',queryParams.phone), string:concat('Mobile:', queryParams.mobile), string:concat('Email:',queryParams.email)))}"
+      } ],
+      "id" : "body",
+      "type" : "section"
+    }
+  },
+  "outboundData" : {
+    "outboundEndPoints" : [ {
+      "baseUrlType" : "workdayProcurement",
+      "headers" : [ {
+        "name" : "content-type",
+        "value" : "application/json"
+      } ],
+      "name" : "requisition",
+      "authType" : "sso",
+      "httpMethod" : "POST",
+      "url" : "requisitions"
+    }, {
+      "values" : [ {
+        "outboundPath" : "requisitionId",
+        "value" : "${requisition.id}"
+      }, {
+        "outboundPath" : "requester",
+        "value" : "${requisition.requester.id}"
+      } ],
+      "name" : "transitionOutboundVars",
+      "type" : "outboundVariable",
+      "variableScope" : "flow"
+    } ]
+  },
+  "id" : "submit"
+}

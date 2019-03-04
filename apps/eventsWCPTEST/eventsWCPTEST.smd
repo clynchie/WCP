@@ -1,0 +1,78 @@
+{
+  "id" : "eventsWCPTEST",
+  "applicationId" : "eventsWCPTEST",
+  "siteId" : "eventsWCPTEST",
+  "tasks" : [ {
+    "id" : "root",
+    "routingPattern" : "/",
+    "page" : {
+      "id" : "home"
+    },
+    "pageId" : "home"
+  }, {
+    "id" : "sportsAndSocial",
+    "routingPattern" : "sportsAndSocial",
+    "page" : {
+      "id" : "sportsAndSocial"
+    },
+    "pageId" : "sportsAndSocial"
+  }, {
+    "id" : "home",
+    "routingPattern" : "home",
+    "page" : {
+      "id" : "home"
+    },
+    "pageId" : "home"
+  }, {
+    "id" : "createEvent",
+    "routingPattern" : "createEvent",
+    "page" : {
+      "id" : "createEvent"
+    },
+    "pageId" : "createEvent"
+  } ],
+  "languages" : [ {
+    "code" : "en-US",
+    "description" : "English"
+  } ],
+  "titles" : [ {
+    "value" : "Deloitte Events",
+    "languageCode" : "en-US"
+  } ],
+  "auth" : {
+    "type" : "SSO"
+  },
+  "siteAuth" : {
+    "authTypes" : [ {
+      "scheme" : "SSO",
+      "id" : "sso",
+      "authenticationScheme" : "SSO"
+    } ],
+    "defaultId" : "sso"
+  },
+  "appProperties" : [ ],
+  "cdnEnabled" : true,
+  "ssoSite" : true,
+  "dataProviders" : [ {
+    "key" : "WORKER",
+    "value" : "https://api.workday.com/common/v1/workers"
+  }, {
+    "key" : "RAAS",
+    "value" : "https://api.workday.com/raas/"
+  }, {
+    "key" : "FEEDBACK",
+    "value" : "https://api.workday.com/performanceManagement/v1/workers"
+  }, {
+    "key" : "CUSTOMOBJECT",
+    "value" : "https://api.workday.com/common/v1/customObjects"
+  }, {
+    "key" : "BADGES",
+    "value" : "https://api.workday.com/performanceManagement/v1/feedbackBadges"
+  }, {
+    "key" : "CONNECT",
+    "value" : "https://api.workday.com/connect/v1Alpha/sendMessage"
+  }, {
+    "key" : "MESSAGE",
+    "value" : "https://api.workday.com/connect/v1Alpha/messageTemplates"
+  } ]
+}
